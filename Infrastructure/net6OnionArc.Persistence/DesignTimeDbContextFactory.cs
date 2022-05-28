@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using net6OnionArc.Persistence.Context;
 using System;
-using Microsoft.Extensions.Configuration
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
