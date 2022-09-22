@@ -10,6 +10,7 @@ namespace net6OnionArc.Domain.Entities.Common
     {
         public Guid Id { get; set; }
         public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
     }
 }

@@ -22,16 +22,40 @@ namespace net6OnionArc.Persistence.Repositories.Concrete
 
         public DbSet<T> Table => _context.Set<T>();
 
-        public IQueryable<T> GetAll() => Table;
+        public IQueryable<T> GetAll(bool tracking = true)
+        {
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = query.AsNoTracking();
+            return query;
+        }
 
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter) => Table.Where(filter);
+        public IQueryable<T> GetAll(Expression<Func<T, bool>> filter, bool tracking = true) 
+        {
+            var query = Table.Where(filter);
+            if (!tracking)
+                query = query.AsNoTracking();
+            return query;           
+        }
 
 
-        public async Task<T> GetAsync(Expression<Func<T, bool>> filter) => await Table.FirstOrDefaultAsync(filter);
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter, bool tracking = true) 
+        {
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = query.AsNoTracking();
+            return await query.FirstOrDefaultAsync(filter);
+        }
 
 
-        public async Task<T> GetByIdAsync(string id) => await Table.FirstOrDefaultAsync(T => T.Id == Guid.Parse(id));
+        public async Task<T> GetByIdAsync(string id, bool tracking = true)
+        {
+            var query = Table.AsQueryable();
+            if (!tracking)
+                query = Table.AsNoTracking();
+            return await query.FirstOrDefaultAsync(x => x.Id == Guid.Parse(id));
+        } 
       
     }
 }

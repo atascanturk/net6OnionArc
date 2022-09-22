@@ -43,7 +43,7 @@ namespace net6OnionArc.Persistence.Repositories.Concrete
 
         public async Task<bool> DeleteByIdAsync(string id)
         {
-            T model = await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
+            T model = await Table.FindAsync(Guid.Parse(id));
             return Delete(model);
         }
 

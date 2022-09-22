@@ -10,9 +10,9 @@ namespace net6OnionArc.Application.Repositories.Abstract
 {
     public interface IReadRepository<T> :IRepository<T> where T : BaseEntity, new()
     {
-        IQueryable<T> GetAll();
-        IQueryable<T> GetAll(Expression<Func<T,bool>> filter);
-        Task<T> GetAsync(Expression<Func<T, bool>> filter);
-        Task<T> GetByIdAsync(string id);
+        IQueryable<T> GetAll(bool tracking);
+        IQueryable<T> GetAll(Expression<Func<T,bool>> filter, bool tracking);
+        Task<T> GetAsync(Expression<Func<T, bool>> filter, bool tracking);
+        Task<T> GetByIdAsync(string id, bool tracking);
     }
 }
