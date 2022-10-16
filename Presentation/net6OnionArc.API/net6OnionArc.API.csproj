@@ -20,4 +20,8 @@
     <ProjectReference Include="..\..\Infrastructure\net6OnionArc.Persistence\net6OnionArc.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
