@@ -1,6 +1,7 @@
 
 using FluentValidation.AspNetCore;
 using net6OnionArc.Application.Validators;
+using net6OnionArc.Infrastructure;
 using net6OnionArc.Infrastructure.Filters;
 using net6OnionArc.Persistence;
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.RegisterPersistenceServices();
+builder.Services.RegisterInfrastructureServices();
 
 builder.Services.AddControllers(options=> options.Filters.Add<ValidationFilter>()).AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>()).ConfigureApiBehaviorOptions(options=>options.SuppressModelStateInvalidFilter = true);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

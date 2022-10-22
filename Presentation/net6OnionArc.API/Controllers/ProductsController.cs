@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using net6OnionArc.Application.Repositories;
 using net6OnionArc.Application.RequestParameters;
+using net6OnionArc.Application.Services.Abstract;
 using net6OnionArc.Application.ViewModels.Products;
 using net6OnionArc.Domain.Entities;
 using System.Net;
@@ -15,12 +16,14 @@ namespace net6OnionArc.API.Controllers
         readonly private IProductWriteRepository _productWriteRepository;
         readonly private IProductReadRepository _productReadRepository;
         readonly private IWebHostEnvironment _webHostEnvironment;
+        readonly private IFileService _fileService;
 
-        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository,IWebHostEnvironment webHostEnvironment)
+        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository, IWebHostEnvironment webHostEnvironment, IFileService fileService)
         {
             _productWriteRepository = productWriteRepository;
             _productReadRepository = productReadRepository;
-            _webHostEnvironment = webHostEnvironment;   
+            _webHostEnvironment = webHostEnvironment;
+            _fileService = fileService;
         }
 
         [HttpGet]
@@ -84,23 +87,8 @@ namespace net6OnionArc.API.Controllers
         [HttpPost("[action]")]
         public async Task<IActionResult> Upload()
         {
-            string uploadPath = Path.Combine(
-                _webHostEnvironment.WebRootPath,"resource/product-images");
 
-            if(!Directory.Exists(uploadPath))
-                Directory.CreateDirectory(uploadPath);
-
-            foreach (IFormFile file in Request.Form.Files)
-            {
-                string fullPath =Path.Combine(uploadPath, $"{file.Name.Replace(Path.GetExtension(file.FileName),"")}_{DateTime.Now.ToString("yyyyMMddhhmm")}{Path.GetExtension(file.FileName)}");
-
-                using FileStream fileStream = new(fullPath,FileMode.Create,FileAccess.Write,FileShare.None,1024 * 1024, useAsync:false);
-
-                await file.CopyToAsync(fileStream);
-
-               await fileStream.FlushAsync();
-            }
-
+            await _fileService.UploadAsync("resource/product-images",Request.Form.Files);
             return Ok();
         }
     }

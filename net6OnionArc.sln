@@ -7,17 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B55145D7-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{36C1E237-8C4A-4EB9-957A-D00E7B30958E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net6OnionArc.Infrastructure", "Infrastructure\net6OnionArc.Infrastructure\net6OnionArc.Infrastructure.csproj", "{A6C635E4-A4A4-470E-BA5D-2E1670C03461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net6OnionArc.Infrastructure", "Infrastructure\net6OnionArc.Infrastructure\net6OnionArc.Infrastructure.csproj", "{A6C635E4-A4A4-470E-BA5D-2E1670C03461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net6OnionArc.Domain", "Core\net6OnionArc.Domain\net6OnionArc.Domain.csproj", "{5DF135BF-EDF3-4AE3-9828-F1A566F82F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net6OnionArc.Domain", "Core\net6OnionArc.Domain\net6OnionArc.Domain.csproj", "{5DF135BF-EDF3-4AE3-9828-F1A566F82F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net6OnionArc.Application", "Core\net6OnionArc.Application\net6OnionArc.Application.csproj", "{2C4C51BD-8AAA-49B1-BAB5-4989F572A724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net6OnionArc.Application", "Core\net6OnionArc.Application\net6OnionArc.Application.csproj", "{2C4C51BD-8AAA-49B1-BAB5-4989F572A724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net6OnionArc.Persistence", "Infrastructure\net6OnionArc.Persistence\net6OnionArc.Persistence.csproj", "{612A7218-EF6B-42D4-A9E4-38FE31905262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net6OnionArc.Persistence", "Infrastructure\net6OnionArc.Persistence\net6OnionArc.Persistence.csproj", "{612A7218-EF6B-42D4-A9E4-38FE31905262}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{E3763F6E-34A9-43CC-AA8B-0781739A68C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net6OnionArc.API", "Presentation\net6OnionArc.API\net6OnionArc.API.csproj", "{FD1757C9-5A41-403F-B9E8-2FCEBA9C8F6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "net6OnionArc.API", "Presentation\net6OnionArc.API\net6OnionArc.API.csproj", "{FD1757C9-5A41-403F-B9E8-2FCEBA9C8F6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
