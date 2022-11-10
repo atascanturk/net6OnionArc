@@ -22,6 +22,12 @@ namespace net6OnionArc.Persistence
             services.AddScoped<IOrderWriteRepository,OrderWriteRepository>();
             services.AddScoped<IProductReadRepository,ProductReadRepository>();
             services.AddScoped<IProductWriteRepository,ProductWriteRepository>();
+            services.AddScoped<IFileWriteRepository,FileWriteRepository>();
+            services.AddScoped<IFileReadRepository, FileReadRepository>();
+            services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
+            services.AddScoped<IProductImageFileReadRepository, ProductImageFileReadRepository>();
+            services.AddScoped<IInvoiceFileWriteRepository, InvoiceFileWriteRepository>();
+            services.AddScoped<IInvoiceFileReadRepository, InvoiceFileReadRepository>();
 
         }
     }

@@ -64,7 +64,7 @@ namespace net6OnionArc.Infrastructure.Services.Concrete
 
                 bool result = await CopyFile(fullPath, file);
 
-                datas.Add((fileNewName, fullPath));
+                datas.Add((fileNewName, $"{path}\\{fileNewName}"));
                 results.Add(result);
 
             }
