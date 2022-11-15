@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using net6OnionArc.Application.Abstractions.Storage;
+using net6OnionArc.Application.Abstractions.Storage.Local;
 using net6OnionArc.Application.Repositories;
 using net6OnionArc.Application.RequestParameters;
-using net6OnionArc.Application.Services.Abstract;
 using net6OnionArc.Application.ViewModels.Products;
 using net6OnionArc.Domain.Entities;
 using System.Net;
@@ -16,14 +17,14 @@ namespace net6OnionArc.API.Controllers
         readonly private IProductWriteRepository _productWriteRepository;
         readonly private IProductReadRepository _productReadRepository;
         readonly private IWebHostEnvironment _webHostEnvironment;
-        readonly private IFileService _fileService;
+        readonly private IStorageService _storageService;
 
-        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository, IWebHostEnvironment webHostEnvironment, IFileService fileService)
+        public ProductsController(IProductWriteRepository productWriteRepository, IProductReadRepository productReadRepository, IWebHostEnvironment webHostEnvironment, IStorageService storageService)
         {
             _productWriteRepository = productWriteRepository;
             _productReadRepository = productReadRepository;
             _webHostEnvironment = webHostEnvironment;
-            _fileService = fileService;
+            _storageService = storageService;
         }
 
         [HttpGet]
@@ -88,7 +89,7 @@ namespace net6OnionArc.API.Controllers
         public async Task<IActionResult> Upload()
         {
 
-            await _fileService.UploadAsync("resource/product-images",Request.Form.Files);
+            await _storageService.UploadAsync("resource/product-images",Request.Form.Files);
             return Ok();
         }
     }

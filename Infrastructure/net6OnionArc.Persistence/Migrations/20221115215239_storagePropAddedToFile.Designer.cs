@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using net6OnionArc.Persistence.Context;
@@ -11,9 +12,10 @@ using net6OnionArc.Persistence.Context;
 namespace net6OnionArc.Persistence.Migrations
 {
     [DbContext(typeof(OnionArcDbContext))]
-    partial class OnionArcDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221115215239_storagePropAddedToFile")]
+    partial class storagePropAddedToFile
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

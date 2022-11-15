@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using net6OnionArc.Application.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace net6OnionArc.Infrastructure.Services.Concrete
 {
-    public class FileService : IFileService
+    public class FileService 
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
 
